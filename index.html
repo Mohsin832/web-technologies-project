@@ -1,292 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Explore Pakistan</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Explore Pakistan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --green: #01411C;
-            --lightgreen: #0b6b3a;
-            --gold: #d4af37;
-            --bg: #f4f8f6;
-        }
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    color:#01411C;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* HEADER */
+header{
+    background:#01411C;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: var(--bg);
-            color: #01411C;
-        }
+/* NAVIGATION */
+nav{
+    background:#0b6b3a;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
 
-        .hero {
-            height: 90vh;
-            background: url("https://tse1.mm.bing.net/th/id/OIP.FtYSVjXMfd5J6YYfB7wfZwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3") center/cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+}
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, .6);
-        }
+nav a:hover{
+    background:#d4af37;
+    color:#01411C;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+/* SECTIONS */
+section{
+    padding:30px;
+}
 
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 15px;
-        }
+/* TITLES */
+h2{
+    border-bottom:3px solid #d4af37;
+    padding-bottom:10px;
+}
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-        }
+/* DESTINATIONS */
+.destinations{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
 
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgb(10, 120, 0);
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 15px;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(110, 22, 110, 0.1);
-        }
+.card{
+    background:white;
+    width:300px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
 
-        nav a {
-            text-decoration: none;
-            color: var(--bg);
-            font-weight: 600;
-        }
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
 
-        nav a:hover {
-            color: var(--gold);
-        }
+.card div{
+    padding:15px;
+}
 
-        section {
-            padding: 60px 8%;
-        }
+/* INFO BOX */
+.box{
+    background:white;
+    padding:15px;
+    margin-bottom:15px;
+    border-left:5px solid #01411C;
+}
 
-        h2 {
-            color: var(--green);
-            margin-bottom: 25px;
-            font-size: 2rem;
-            border-left: 6px solid var(--gold);
-            padding-left: 12px;
-        }
+/* FORM */
+form{
+    background:white;
+    padding:20px;
+    max-width:400px;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
 
-        .card {
-            background: rgba(255, 255, 255, .9);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: .3s;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
-        }
+button{
+    background:#01411C;
+    color:white;
+    border:none;
+    padding:10px;
+    margin-top:10px;
+    width:100%;
+}
 
-        .card:hover {
-            transform: translateY(-8px);
-        }
+/* MAP */
+iframe{
+    width:100%;
+    height:350px;
+    border:none;
+}
 
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+/* FOOTER */
+footer{
+    background:#01411C;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
 
-        .card-content {
-            padding: 18px;
-        }
-
-        .card-content h3 {
-            color: var(--green);
-            margin-bottom: 10px;
-        }
-
-        .info-box {
-            background: white;
-            border-left: 6px solid var(--gold);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 18px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
-        }
-
-        form {
-            max-width: 500px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 12px 0;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background: var(--green);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: var(--lightgreen);
-        }
-
-        iframe {
-            width: 100%;
-            height: 420px;
-            border-radius: 20px;
-            border: none;
-        }
-
-        footer {
-            background: var(--green);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        @media(max-width:600px) {
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-
-            section {
-                padding: 40px 5%;
-            }
-        }
-    </style>
+/* MOBILE */
+@media(max-width:700px){
+    .destinations{
+        justify-content:center;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Explore Pakistan</h1>
-            <p>Discover Pakistan’s culture, landmarks, and breathtaking destinations</p>
-        </div>
-    </div>
+<header>
+    <h1>Explore Pakistan</h1>
+    <p>Tourism Website Project</p>
+</header>
 
-    <nav>
-        <a href="#destinations">Destinations</a>
-        <a href="#culture">Culture</a>
-        <a href="#tips">Travel Tips</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#map">Map</a>
-    </nav>
+<nav>
+    <a href="#destinations">Destinations</a>
+    <a href="#culture">Culture</a>
+    <a href="#tips">Travel Tips</a>
+    <a href="#feedback">Feedback</a>
+    <a href="#map">Map</a>
+</nav>
 
-    <section id="destinations">
-        <h2>Top Destinations</h2>
-        <div class="grid">
+<section id="destinations">
+<h2>Top Destinations</h2>
 
-            <div class="card">
-                <img src="https://tse1.mm.bing.net/th/id/OIP.FtYSVjXMfd5J6YYfB7wfZwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3">
-                <div class="card-content">
-                    <h3>Islamabad</h3>
-                    <p>An iconic symbol of Islamabad and one of the largest mosques in the world.</p>
-                </div>
-            </div>
+<div class="destinations">
 
-            <div class="card">
-                <img src="https://tse4.mm.bing.net/th/id/OIP.Y7WhUruTtOOta94WyFawtgHaFl?rs=1&pid=ImgDetMain&o=7&rm=3">
-                <div class="card-content">
-                    <h3>Lahore</h3>
-                    <p>Snow-capped mountains, crystal lakes, and unmatched beauty.</p>
-                </div>
-            </div>
+<div class="card">
+<img src="https://tse1.mm.bing.net/th/id/OIP.FtYSVjXMfd5J6YYfB7wfZwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div>
+<h3>Islamabad</h3>
+<p>Capital city famous for Faisal Mosque and greenery.</p>
+</div>
+</div>
 
-            <div class="card">
-                <img
-                    src="https://wikitravel.org/upload/shared/thumb/d/d1/Downtown_Karachi.jpg/600px-Downtown_Karachi.jpg">
-                <div class="card-content">
-                    <h3>Karachi</h3>
-                    <p>The cultural heart of Pakistan with Mughal-era heritage.</p>
-                </div>
-            </div>
+<div class="card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.Y7WhUruTtOOta94WyFawtgHaFl?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div>
+<h3>Lahore</h3>
+<p>Historical city with rich culture and food.</p>
+</div>
+</div>
 
-        </div>
-    </section>
+<div class="card">
+<img src="https://wikitravel.org/upload/shared/thumb/d/d1/Downtown_Karachi.jpg/600px-Downtown_Karachi.jpg">
+<div>
+<h3>Karachi</h3>
+<p>Largest city and economic hub of Pakistan.</p>
+</div>
+</div>
 
-    <section id="culture">
-        <h2>Cultural Insights</h2>
-        <div class="info-box"><b>Festivals:</b> Eid, Basant, Independence Day</div>
-        <div class="info-box"><b>Traditions:</b> Hospitality, folk music, traditional dress</div>
-        <div class="info-box"><b>Food:</b> Biryani, Nihari, Karahi, Chapli Kebab</div>
-    </section>
+</div>
+</section>
 
-    <section id="tips">
-        <h2>Travel Tips</h2>
-        <div class="info-box">🚍 Use ride-hailing apps for easy transport</div>
-        <div class="info-box">🏨 Book hotels early during tourist season</div>
-        <div class="info-box">🛡️ Respect local customs and culture</div>
-    </section>
+<section id="culture">
+<h2>Cultural Insights</h2>
+<div class="box">Festivals: Eid, Basant, Independence Day</div>
+<div class="box">Traditions: Hospitality and respect</div>
+<div class="box">Food: Biryani, Nihari, Karahi</div>
+</section>
 
-    <section id="gallery">
-        <h2>Enter your feedback</h2>
-        <form onsubmit="submitStory(event)">
-            <input type="text" placeholder="Your Name" required>
-            <textarea placeholder="Share your travel story" required></textarea>
-            <button>Submit Story</button>
-        </form>
-    </section>
+<section id="tips">
+<h2>Travel Tips</h2>
+<div class="box">Use public transport or ride-hailing apps</div>
+<div class="box">Book hotels before traveling</div>
+<div class="box">Respect local culture</div>
+</section>
 
-    <section id="map">
-        <h2>Interactive Map of Pakistan</h2>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9293545.656014461!2d73.09561066259596!3d28.112784250459264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38db52d2f8fd751f%3A0x46b7a1f7e614925c!2sPakistan!5e0!3m2!1sen!2s!4v1767381954844!5m2!1sen!2s"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section>
+<section id="feedback">
+<h2>User Feedback</h2>
+<form onsubmit="submitForm(event)">
+<input type="text" placeholder="Your Name" required>
+<textarea placeholder="Your experience" required></textarea>
+<button>Submit</button>
+</form>
+</section>
 
-    <footer>
-        © 2026 Explore Pakistan | Tourism Website Project
-    </footer>
+<section id="map">
+<h2>Map of Pakistan</h2>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9293545.656014461!2d73.09561066259596!3d28.112784250459264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38db52d2f8fd751f%3A0x46b7a1f7e614925c!2sPakistan!5e0!3m2!1sen!2s"></iframe>
+</section>
 
-    <script>
-        function submitStory(e) {
-            e.preventDefault();
-            alert("Thank you for sharing your experience!");
-            e.target.reset();
-        }
-    </script>
+<footer>
+© 2026 Explore Pakistan
+</footer>
+
+<script>
+function submitForm(e){
+    e.preventDefault();
+    alert("Thank you for your feedback!");
+}
+</script>
 
 </body>
-
 </html>
